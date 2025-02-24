@@ -1,17 +1,21 @@
 package com.Capgemini.employee_payroll.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import org.springframework.web.bind.annotation.PutMapping;
 @Entity
 public class Employee {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private double salary;
      public Employee(){}
-    public Employee(Long id, String name, double salary){
-         this.id=id;
+
+
+    public Employee(String name, double salary) {
          this.name=name;
          this.salary=salary;
     }

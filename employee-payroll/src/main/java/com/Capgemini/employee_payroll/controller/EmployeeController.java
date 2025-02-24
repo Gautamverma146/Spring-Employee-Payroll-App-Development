@@ -1,5 +1,6 @@
 package com.Capgemini.employee_payroll.controller;
 
+import com.Capgemini.employee_payroll.dto.EmployeeDto;
 import com.Capgemini.employee_payroll.entity.Employee;
 import com.Capgemini.employee_payroll.service.EmployeeServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,8 @@ public class EmployeeController {
     private EmployeeServiceInterface employeeService;
 
     @PostMapping
-    public Employee addEmployee(@RequestBody Employee employee){
-       return employeeService.saveEmp(employee);
+    public Employee addEmployee(@RequestBody EmployeeDto employeeDto){
+       return employeeService.saveEmp(employeeDto);
     }
 
     @GetMapping
@@ -31,8 +32,8 @@ public class EmployeeController {
     }
 
     @PutMapping("/put/{id}")
-    public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee employee){
-        return employeeService.updateEmployee(id, employee);
+    public Employee updateEmployee(@PathVariable Long id, @RequestBody EmployeeDto employeeDto){
+        return employeeService.updateEmployee(id, employeeDto);
     }
 
     @DeleteMapping("/{id}")

@@ -31,6 +31,7 @@ public class EmployeeThymeleafController {
     public String addEmployee(@ModelAttribute EmployeeDto employeeDto) {
         employeeService.saveEmp(employeeDto);
         return "redirect:/employee";
+        //return "added";
     }
 
     // Delete Employee

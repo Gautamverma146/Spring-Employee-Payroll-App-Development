@@ -3,6 +3,7 @@ package com.Capgemini.employee_payroll.service;
 import com.Capgemini.employee_payroll.dto.EmployeeDto;
 import com.Capgemini.employee_payroll.entity.Employee;
 import com.Capgemini.employee_payroll.repository.EmployeeRepository;
+import jakarta.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class EmployeeServiceClass implements EmployeeServiceInterface {
     @Autowired
     EmployeeRepository employeeRepository;
     @Override
-    public Employee saveEmp(EmployeeDto employeeDto) {
+    public Employee saveEmp(@NotNull EmployeeDto employeeDto) {
         log.info("Saving employee: " + employeeDto);
         Employee employee = new Employee(employeeDto.getName(), employeeDto.getSalary());
         log.info("Employee saved successfully");
@@ -48,7 +49,7 @@ public class EmployeeServiceClass implements EmployeeServiceInterface {
     }
 
     @Override
-    public Employee updateEmployee(Long id, EmployeeDto employeeDto) {
+    public Employee updateEmployee(Long id,@NotNull Employee employeeDto) {
         log.info("Updating employee by id",id);
         return employeeRepository.findById(id).map(emp -> {
             emp.setName(employeeDto.getName());

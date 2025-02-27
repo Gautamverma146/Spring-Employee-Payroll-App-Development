@@ -3,10 +3,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
+
+import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.Getter;
+//import lombok
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Data
 @NoArgsConstructor
@@ -15,6 +17,8 @@ public class EmployeeDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+   @NotNull
+   @Size(min = 2, message = "Name must have at least 2 characters")
     private String name;
     private double salary;
 

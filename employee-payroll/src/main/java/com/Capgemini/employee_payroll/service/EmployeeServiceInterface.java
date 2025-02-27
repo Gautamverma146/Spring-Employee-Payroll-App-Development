@@ -10,7 +10,7 @@ public interface EmployeeServiceInterface {
     Employee saveEmp(EmployeeDto employeeDTO);
     List<Employee> getAllEmployees();
     Optional<Employee> getEmpById(Long id);
-    Employee updateEmployee(Long id, EmployeeDto employee);
+    Employee updateEmployee(Long id, Employee employee);
     void deleteEmployee(Long id);
 
 }

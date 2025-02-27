@@ -4,18 +4,25 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.NonNull;
+import lombok.*;
 import org.springframework.web.bind.annotation.PutMapping;
 @Entity
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NonNull
+    @NotEmpty
     private String name;
     private double salary;
      public Employee(){}
 
 
     public Employee(String name, double salary) {
+       //  @NotEmpty
+        //@NonNull
          this.name=name;
          this.salary=salary;
     }
